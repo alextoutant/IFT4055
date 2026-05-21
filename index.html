@@ -801,39 +801,36 @@
 <h2 id="description-du-projet">Description du projet<a class="headerlink" href="#description-du-projet" title="Permanent link">&para;</a></h2>
 <h3 id="contexte">Contexte<a class="headerlink" href="#contexte" title="Permanent link">&para;</a></h3>
 <p>Ce projet s’inscrit dans le développement du langage expérimental <em>Typer</em>, un langage de recherche écrit en OCaml au laboratoire de traitement parallèle de l’Université de Montréal. Le projet possède déjà plusieurs étapes de compilation et d’interprétation, incluant des représentations intermédiaires (<code>Lexp</code>, <code>Elexp</code>), un système de typage ainsi qu’un évaluateur fonctionnel.</p>
-<p>Présentement, le langage est interprété, mais certaines étapes importantes qu’on retrouve dans les compilateurs fonctionnels modernes ne sont pas encore implémentées. Le projet se concentre sur l’ajout d’une étape de conversion de fermeture (<em>closure</em>), qui consiste à rendre explicites les environnements capturés par les fonctions anonymes (<code>lambda</code>).</p>
-<p>Cette transformation est un étape importante dans les compilateurs de langages fonctionnels puisqu’elle permet de représenter explicitement les fermetures et prépare le terrain pour des transformations plus bas niveau, ainsi qu’éventuellement pour la génération de code.</p>
+<p>Présentement, le langage est interprété, mais certaines étapes importantes qu’on retrouve dans les compilateurs modernes ne sont pas encore implémentées. Le projet se concentre sur l’ajout d’une étape de conversion de fermeture (<em>closure</em>), qui consiste à rendre explicites les environnements capturés par les fonctions anonymes (<code>lambda</code>).</p>
+<p>Cette transformation est un étape importante dans les compilateurs de langages puisqu’elle permet de représenter explicitement les fermetures et prépare le terrain pour des transformations plus bas niveau, ainsi qu’éventuellement pour la génération de code.</p>
 <h3 id="problematique">Problématique<a class="headerlink" href="#problematique" title="Permanent link">&para;</a></h3>
-<p>Les langages fonctionnels modernes permettent l’utilisation de fonctions anonymes (<code>lambda</code>) et de fonctions d’ordre supérieur capables de capturer des variables provenant de leur environnement lexical. Ce mécanisme, appelé fermeture (<em>closure</em>), est un élément central des compilateurs fonctionnels.</p>
+<p>Les langages modernes permettent l’utilisation de fonctions anonymes (<code>lambda</code>) et de fonctions d’ordre supérieur capables de capturer des variables provenant de leur environnement lexical. Ce mécanisme, appelé fermeture (<em>closure</em>), est un élément central des compilateurs.</p>
 <p>Dans plusieurs pipelines de compilation, les fonctions et les environnements capturés sont d’abord représentés de manière implicite dans les premières représentations intermédiaires. Autrement dit, les variables capturées existent conceptuellement, mais elles ne sont pas représentées directement dans les structures de données du compilateur.</p>
 <p>Cette approche devient limitante lorsqu’on souhaite effectuer des transformations plus avancées du programme. À l’inverse, une représentation explicite encode directement les variables libres, les environnements capturés et les fermetures dans la représentation intermédiaire elle-même.</p>
 <p>Le problème principal du projet est donc d’introduire une représentation intermédiaire permettant de représenter explicitement les fermetures et les environnements capturés afin de faciliter les transformations subséquentes du compilateur.</p>
 <h3 id="proposition-et-objectifs">Proposition et objectifs<a class="headerlink" href="#proposition-et-objectifs" title="Permanent link">&para;</a></h3>
-<p>Le projet propose d’ajouter une nouvelle représentation intermédiaire nommée <code>Cexp</code>, obtenue à partir de <code>Elexp</code> par une étape de conversion de fermeture (<em>closure conversion</em>). Cette transformation vise à rendre explicites les fonctions compilées, les variables libres ainsi que les environnements capturés.</p>
-<p>L’idée principale est de transformer les fonctions anonymes (<code>lambda</code>) en structures contenant :</p>
-<ul>
-<li>une référence vers le code compilé </li>
-<li>ainsi qu’un environnement contenant les variables capturées</li>
-</ul>
+<p>Le projet propose d’ajouter une passe supplémentaire de transformation sur <code>Elexp</code>. Cette passe prendra une expression <code>Elexp</code> en entrée et retournera une nouvelle expression <code>Elexp</code> équivalente dans laquelle les fonctions anonymes (<code>lambda</code>) seront fermées explicitement.</p>
+<p>L’idée principale est de transformer les fonctions utilisant des variables libres afin que ces variables soient transmises explicitement plutôt que capturées implicitement depuis l’environnement lexical.</p>
 <p>Les objectifs principaux du projet sont :</p>
 <ul>
-<li>comprendre le pipeline actuel du compilateur et la représentation actuelle des fonctions ;</li>
-<li>concevoir et intégrer une nouvelle IR (<code>Cexp</code>) au projet </li>
-<li>implémenter une transformation <code>Elexp -&gt; Cexp</code> </li>
-<li>implémenter le calcul des variables libres </li>
-<li>transformer les fonctions anonymes en fermetures explicites (<code>Cmake_closure</code>)</li>
-<li>ajouter des outils de visualisation et des tests afin de valider la transformation</li>
+<li>comprendre le pipeline actuel du compilateur et la représentation actuelle des fonctions</li>
+<li>étudier la fonction <code>fv</code> déjà présente pour les <code>Lexp</code></li>
+<li>implémenter le calcul des variables libres pour <code>Elexp</code></li>
+<li>implémenter une passe de transformation <code>Elexp -&gt; Elexp</code></li>
+<li>transformer les fonctions anonymes ayant des variables libres en fonctions fermées</li>
+<li>réutiliser les outils de visualisation existants afin d’observer les transformations effectuées</li>
+<li>ajouter des tests afin de valider la transformation</li>
 </ul>
-<p>Le projet vise principalement à produire une représentation intermédiaire plus explicite et plus proche du runtime, tout en conservant une architecture suffisamment propre pour de futurs travaux.</p>
+<p>Le projet vise principalement à mieux comprendre et expliciter la gestion des fermetures dans un compilateur fonctionnel, tout en conservant une architecture simple et compatible avec le pipeline actuel du langage.</p>
 <h3 id="methodologie">Méthodologie<a class="headerlink" href="#methodologie" title="Permanent link">&para;</a></h3>
-<p>Le projet sera réalisé de manière incrémentale. Une première étape consistera à étudier le pipeline actuel du compilateur afin de bien comprendre les représentations intermédiaires existantes (<code>Lexp</code>, <code>Elexp</code>) ainsi que la gestion actuelle des fonctions et des environnements.</p>
-<p>Ensuite, une nouvelle représentation intermédiaire (<code>Cexp</code>) sera ajoutée au projet avec les structures nécessaires pour représenter explicitement les fermetures et les fonctions compilées.</p>
-<p>La transformation sera développée progressivement, un constructeur de <code>Elexp</code> à la fois. Pour chaque étape, les structures de données, la transformation, les outils de visualisation (<code>dump-cexps</code>) et les tests seront développés en parallèle afin de conserver un pipeline fonctionnel tout au long du projet.</p>
-<p>Une attention particulière sera portée au calcul des variables libres et à la gestion des fonctions imbriquées, puisqu’il s’agit des éléments centraux de la conversion de fermeture.</p>
+<p>Le projet sera réalisé de manière incrémentale. Une première étape consistera à étudier le pipeline actuel du compilateur ainsi que la représentation des fonctions dans <code>Elexp</code>.</p>
+<p>Une attention particulière sera portée à la fonction <code>fv</code> déjà présente pour les <code>Lexp</code>, puisque le calcul correct des variables libres constitue l’élément central du projet.</p>
+<p>Ensuite, une passe de transformation <code>Elexp -&gt; Elexp</code> sera implémentée afin de transformer progressivement les fonctions anonymes ayant des variables libres en fonctions fermées.</p>
+<p>Le développement sera effectué un constructeur de <code>Elexp</code> à la fois, en développant les tests et les outils de validation en parallèle afin de conserver un pipeline fonctionnel tout au long du projet.</p>
 <p>Le développement du projet sera également accompagné de rencontres hebdomadaires avec le superviseur, le Pr. Stefan Monnier, afin de discuter de l’avancement du projet, de valider les choix de conception et d’ajuster la portée du projet au besoin.</p>
 <h3 id="validation-et-evaluation">Validation et Évaluation<a class="headerlink" href="#validation-et-evaluation" title="Permanent link">&para;</a></h3>
 <p>La validation du projet reposera principalement sur des tests fonctionnels et sur l’inspection des représentations intermédiaires générées.</p>
-<p>Le projet sera considéré comme réussi si les fonctions anonymes utilisant des variables libres sont correctement transformées en fermetures explicites dans <code>Cexp</code>, tout en préservant le comportement original des programmes.</p>
+<p>Le projet sera considéré comme réussi si les fonctions anonymes utilisant des variables libres sont correctement transformées en fonctions fermées dans <code>Elexp</code>, tout en préservant le comportement original des programmes.</p>
 <p>Des tests seront ajoutés progressivement afin de vérifier :</p>
 <ul>
 <li>le calcul correct des variables libres </li>
@@ -841,7 +838,7 @@
 <li>la représentation explicite des environnements capturés </li>
 <li>ainsi que la bonne transformation des appels de fonctions</li>
 </ul>
-<p>Des outils de visualisation comme <code>dump-cexps</code> permettront également de vérifier manuellement que les fermetures et les fonctions compilées sont représentées correctement dans la nouvelle IR.</p>
+<p>Des outils de visualisation comme <code>dump-elexps</code> permettront également de vérifier manuellement que les fermetures et les fonctions compilées sont représentées correctement dans la nouvelle IR.</p>
 <h2 id="equipe">Équipe<a class="headerlink" href="#equipe" title="Permanent link">&para;</a></h2>
 <p>Alexandre Toutant, étudiant au baccalauréat en informatique, cheminement Honor.</p>
 <h2 id="echeancier">Échéancier<a class="headerlink" href="#echeancier" title="Permanent link">&para;</a></h2>
