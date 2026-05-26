@@ -516,18 +516,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#structure-suggeree" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Structure suggérée
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Structure suggérée">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#architecture-ou-structure-generale" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -537,8 +525,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#fonctionnalites-ou-composantes-realisees" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -548,8 +536,36 @@
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#exemples-de-transformations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemples de transformations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemples de transformations">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#exemple-conceptuel-de-fermeture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple conceptuel de fermeture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#difficultes-rencontrees" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -559,8 +575,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#decisions-et-ajustements" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -568,11 +584,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -638,18 +649,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#structure-suggeree" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Structure suggérée
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Structure suggérée">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#architecture-ou-structure-generale" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -659,8 +658,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#fonctionnalites-ou-composantes-realisees" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -670,8 +669,36 @@
   </a>
   
 </li>
+      
+        <li class="md-nav__item">
+  <a href="#exemples-de-transformations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemples de transformations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exemples de transformations">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#exemple-conceptuel-de-fermeture" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemple conceptuel de fermeture
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#difficultes-rencontrees" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -681,8 +708,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#decisions-et-ajustements" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -690,11 +717,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -727,60 +749,92 @@
 </style>
 
 <h1 id="realisation">Réalisation<a class="headerlink" href="#realisation" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p><img alt="💡" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4a1.png" title=":bulb:" /> Cette page sert à présenter les travaux réalisés incluant la conception.<br />
-Elle ne remplace pas le rapport final, mais permet de documenter progressivement les travaux réalisés, les décisions prises et les principaux résultats obtenus.</p>
-</blockquote>
-<h2 id="structure-suggeree">Structure suggérée<a class="headerlink" href="#structure-suggeree" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>La structure suivante est donnée à titre indicatif.<br />
-Vous pouvez l’adapter selon la nature de votre projet.</p>
-</blockquote>
-<h3 id="architecture-ou-structure-generale">Architecture ou structure générale<a class="headerlink" href="#architecture-ou-structure-generale" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p>Présentez l’organisation générale du projet :</p>
+<h2 id="architecture-ou-structure-generale">Architecture ou structure générale<a class="headerlink" href="#architecture-ou-structure-generale" title="Permanent link">&para;</a></h2>
+<p>Le projet est développé en OCaml à partir du langage expérimental Typer, développé au laboratoire de traitement parallèle de l’Université de Montréal.</p>
+<p>Le pipeline du compilateur possède déjà plusieurs représentations intermédiaires, notamment <code>Lexp</code> et <code>Elexp</code>, ainsi qu’un système de typage, un interpréteur et des outils de dump permettant d’observer les transformations internes du compilateur.</p>
+<p>Après discussion avec le superviseur, le projet a été recentré sur une transformation locale de type <code>Elexp -&gt; Elexp</code>.</p>
+<p>L’objectif est d’ajouter une étape de fermeture explicite des fonctions anonymes (<code>lambda</code>) directement dans <code>Elexp</code>, sans introduire de nouvelle représentation intermédiaire.</p>
+<p>Le projet repose principalement sur :</p>
 <ul>
-<li>architecture logicielle ;</li>
-<li>composants principaux ;</li>
-<li>structure des données ;</li>
-<li>technologies utilisées ;</li>
-<li>environnement de développement ;</li>
-<li>outils ou services externes.</li>
+<li><code>ir.ml</code> pour la définition des représentations intermédiaires </li>
+<li><code>opslexp.ml</code> pour les opérations sur les expressions et le calcul des variables libres </li>
+<li><code>debruijn.ml</code> pour la gestion des indices de De Bruijn </li>
+<li>les outils de dump déjà présents dans le compilateur afin de visualiser les transformations effectuées</li>
 </ul>
-</blockquote>
-<h3 id="fonctionnalites-ou-composantes-realisees">Fonctionnalités ou composantes réalisées<a class="headerlink" href="#fonctionnalites-ou-composantes-realisees" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p>Présentez les principales fonctionnalités, modules ou composantes développés.</p>
-<p>Vous pouvez inclure :</p>
+<p>L’environnement de développement utilisé est :</p>
 <ul>
-<li>captures d’écran ;</li>
-<li>diagrammes ;</li>
-<li>démonstrations ;</li>
-<li>extraits de code ;</li>
-<li>prototypes.</li>
+<li>OCaml </li>
+<li>dune </li>
+<li>Git/GitLab </li>
+<li>GitHub Desktop </li>
+<li>MkDocs pour la documentation du projet</li>
 </ul>
-</blockquote>
-<h3 id="difficultes-rencontrees">Difficultés rencontrées<a class="headerlink" href="#difficultes-rencontrees" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p>Décrivez les principaux défis rencontrés durant le projet :</p>
+<h2 id="fonctionnalites-ou-composantes-realisees">Fonctionnalités ou composantes réalisées<a class="headerlink" href="#fonctionnalites-ou-composantes-realisees" title="Permanent link">&para;</a></h2>
+<p>À ce stade, les travaux réalisés concernent principalement :</p>
 <ul>
-<li>techniques ;</li>
-<li>méthodologiques ;</li>
-<li>organisationnels ;</li>
-<li>liés aux outils ou technologies.</li>
+<li>la compréhension du pipeline actuel du compilateur </li>
+<li>l’analyse des représentations <code>Lexp</code> et <code>Elexp</code> </li>
+<li>l’étude du fonctionnement des fonctions curryfiées </li>
+<li>l’analyse de la fonction <code>fv</code> déjà présente pour <code>Lexp</code> </li>
+<li>l’étude des articles scientifiques liés à la closure conversion et au lambda lifting</li>
 </ul>
-</blockquote>
-<h3 id="decisions-et-ajustements">Décisions et ajustements<a class="headerlink" href="#decisions-et-ajustements" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p>Présentez les changements importants effectués durant le trimestre :</p>
+<p>Des exemples de dump <code>Elexp</code> ont également été analysés afin de comprendre </p>
 <ul>
-<li>changement d’approche ;</li>
-<li>ajustement des objectifs ;</li>
-<li>nouvelles contraintes ;</li>
-<li>simplifications ;</li>
-<li>améliorations apportées.</li>
+<li>la structure réelle des lambdas </li>
+<li>l’utilisation des variables temporaires générées (<code>gensym</code>) </li>
+<li>les cas où des variables libres apparaissent dans des lambdas imbriquées</li>
 </ul>
-</blockquote>
+<h2 id="exemples-de-transformations">Exemples de transformations<a class="headerlink" href="#exemples-de-transformations" title="Permanent link">&para;</a></h2>
+<h3 id="exemple-conceptuel-de-fermeture">Exemple conceptuel de fermeture<a class="headerlink" href="#exemple-conceptuel-de-fermeture" title="Permanent link">&para;</a></h3>
+<p>Avant transformation :</p>
+<div class="highlight"><pre><span></span><code>lambda (y) -&gt;
+  x + y
+</code></pre></div>
+<p>Après fermeture explicite :</p>
+<div class="highlight"><pre><span></span><code>((lambda (captured_x) -&gt;
+   lambda (y) -&gt;
+      captured_x + y)
+x)
+</code></pre></div>
+<p>Dans cet exemple :</p>
+<ul>
+<li><code>x</code> est une variable libre </li>
+<li>la transformation rend explicite la capture de <code>x</code></li>
+</ul>
+<h2 id="difficultes-rencontrees">Difficultés rencontrées<a class="headerlink" href="#difficultes-rencontrees" title="Permanent link">&para;</a></h2>
+<p>Les principales difficultés identifiées jusqu’à présent concernent :</p>
+<ul>
+<li>la compréhension des indices de De Bruijn </li>
+<li>le calcul correct des variables libres </li>
+<li>la distinction entre variables locales et variables libres dans des lambdas imbriquées </li>
+<li>la compréhension des transformations visibles dans les dumps <code>Elexp</code></li>
+</ul>
+<p>Une attention particulière devra être portée aux fonctions :
+- <code>fv_hoist</code> 
+- <code>fv_sink</code> 
+- aux décalages d’indices lors des transformations</p>
+<h2 id="decisions-et-ajustements">Décisions et ajustements<a class="headerlink" href="#decisions-et-ajustements" title="Permanent link">&para;</a></h2>
+<p>Les principales décisions prises jusqu’à présent sont :</p>
+<ul>
+<li>conserver la représentation <code>Elexp</code> existante </li>
+<li>effectuer une transformation locale plutôt qu’un hoisting global </li>
+<li>réutiliser les outils de dump déjà présents dans le compilateur </li>
+<li>commencer par l’implémentation du calcul des variables libres avant toute transformation de lambdas</li>
+</ul>
+<p>Après discussion avec le superviseur, plusieurs éléments initialement envisagés ont été retirés du scope :</p>
+<ul>
+<li>nouvelle IR (<code>Cexp</code>) </li>
+<li>hoisting des fonctions </li>
+<li>lambda lifting </li>
+<li>table globale de fonctions </li>
+<li>génération de code machine</li>
+</ul>
+<p>Le projet se concentre maintenant uniquement sur :</p>
+<ul>
+<li>le calcul des variables libres </li>
+<li>la fermeture explicite des fonctions anonymes </li>
+<li>une transformation locale <code>Elexp -&gt; Elexp</code></li>
+</ul>
 
 
 

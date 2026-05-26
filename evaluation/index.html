@@ -541,18 +541,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#structure-suggeree" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Structure suggérée
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Structure suggérée">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#methodes-de-validation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -562,8 +550,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#resultats-obtenus" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -573,8 +561,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#analyse-critique" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -584,8 +572,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#limites-du-projet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -593,11 +581,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -636,18 +619,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#structure-suggeree" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Structure suggérée
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Structure suggérée">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#methodes-de-validation" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -657,8 +628,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#resultats-obtenus" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -668,8 +639,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#analyse-critique" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -679,8 +650,8 @@
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#limites-du-projet" class="md-nav__link">
     <span class="md-ellipsis">
       
@@ -688,11 +659,6 @@
       
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -725,59 +691,37 @@
 </style>
 
 <h1 id="evaluation">Évaluation<a class="headerlink" href="#evaluation" title="Permanent link">&para;</a></h1>
-<blockquote>
-<p><img alt="💡" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f4a1.png" title=":bulb:" /> Cette page sert à présenter comment le projet a été testé, évalué ou validé.<br />
-Elle ne remplace pas le rapport final, mais permet de documenter progressivement les résultats obtenus et leur interprétation.</p>
-</blockquote>
-<h2 id="structure-suggeree">Structure suggérée<a class="headerlink" href="#structure-suggeree" title="Permanent link">&para;</a></h2>
-<blockquote>
-<p>La structure suivante est donnée à titre indicatif.<br />
-Vous pouvez l’adapter selon la nature du projet.</p>
-</blockquote>
-<h3 id="methodes-de-validation">Méthodes de validation<a class="headerlink" href="#methodes-de-validation" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p>Présentez les approches utilisées pour valider le projet :</p>
+<h2 id="methodes-de-validation">Méthodes de validation<a class="headerlink" href="#methodes-de-validation" title="Permanent link">&para;</a></h2>
+<p>La validation du projet reposera principalement sur l’analyse des transformations produites par la passe de fermeture des fonctions anonymes.</p>
+<p>Le compilateur possède déjà un système de dump permettant d’afficher les expressions <code>Elexp</code>. Ces outils seront réutilisés afin de comparer les expressions avant et après transformation.</p>
+<p>Les validations prévues incluent :</p>
 <ul>
-<li>scénarios d’utilisation ;</li>
-<li>tests fonctionnels ;</li>
-<li>tests utilisateurs ;</li>
-<li>mesures de performance ;</li>
-<li>validation expérimentale ;</li>
-<li>comparaison avec des solutions existantes.</li>
+<li>des tests sur des lambdas simples sans variables libres </li>
+<li>des tests sur des lambdas capturant des variables provenant d’un scope extérieur </li>
+<li>des tests sur des lambdas imbriquées </li>
+<li>des tests impliquant du shadowing de variables </li>
+<li>des tests sur des expressions utilisant <code>let</code>, <code>case</code> et des appels de fonctions</li>
 </ul>
-</blockquote>
-<h3 id="resultats-obtenus">Résultats obtenus<a class="headerlink" href="#resultats-obtenus" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p>Présentez les principaux résultats :</p>
+<p>Une attention particulière sera portée au calcul correct des variables libres ainsi qu’aux décalages d’indices de De Bruijn après transformation.</p>
+<p>La validation sera principalement fonctionnelle et structurelle plutôt que basée sur des performances d’exécution.</p>
+<h2 id="resultats-obtenus">Résultats obtenus<a class="headerlink" href="#resultats-obtenus" title="Permanent link">&para;</a></h2>
+<h2 id="analyse-critique">Analyse critique<a class="headerlink" href="#analyse-critique" title="Permanent link">&para;</a></h2>
+<h2 id="limites-du-projet">Limites du projet<a class="headerlink" href="#limites-du-projet" title="Permanent link">&para;</a></h2>
+<p>Le projet est réalisé dans un contexte de temps limité, avec environ 10 à 12 semaines de développement à temps partiel.</p>
+<p>Afin de conserver une portée réaliste, plusieurs éléments avancés ont été exclus du projet :</p>
 <ul>
-<li>fonctionnalités validées ;</li>
-<li>performances observées ;</li>
-<li>résultats de tests ;</li>
-<li>retours utilisateurs ;</li>
-<li>observations importantes.</li>
+<li>génération de code machine </li>
+<li>lambda lifting </li>
+<li>hoisting global des fonctions </li>
+<li>nouvelle représentation intermédiaire dédiée aux closures </li>
+<li>optimisations de performances liées aux fermetures</li>
 </ul>
-</blockquote>
-<h3 id="analyse-critique">Analyse critique<a class="headerlink" href="#analyse-critique" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p>Discutez des résultats obtenus :</p>
+<p>Le projet se concentre donc principalement sur :</p>
 <ul>
-<li>les objectifs ont-ils été atteints ?</li>
-<li>quels éléments fonctionnent bien ?</li>
-<li>quelles limites ont été observées ?</li>
-<li>quels aspects pourraient être améliorés ?</li>
+<li>la représentation explicite des variables libres </li>
+<li>la transformation locale des fonctions anonymes </li>
+<li>la compréhension des mécanismes internes des fermetures dans un compilateur fonctionnel</li>
 </ul>
-</blockquote>
-<h3 id="limites-du-projet">Limites du projet<a class="headerlink" href="#limites-du-projet" title="Permanent link">&para;</a></h3>
-<blockquote>
-<p>Présentez les principales limites du projet :</p>
-<ul>
-<li>contraintes techniques ;</li>
-<li>portée limitée ;</li>
-<li>temps disponible ;</li>
-<li>limites des données ou des tests ;</li>
-<li>dépendances externes.</li>
-</ul>
-</blockquote>
 
 
 
