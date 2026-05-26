@@ -900,9 +900,9 @@
 <li>Distinction parfois ambiguë entre variables locales et variables libres</li>
 <li>Compréhension progressive des transformations visibles dans les dumps <code>Elexp</code></li>
 <li>Clarification nécessaire entre :<ul>
-<li>closure conversion ;</li>
-<li>lambda lifting ;</li>
-<li>hoisting global des fonctions.</li>
+<li>closure conversion </li>
+<li>lambda lifting </li>
+<li>hoisting global des fonctions</li>
 </ul>
 </li>
 </ul>
@@ -919,24 +919,92 @@
 <div class="admonition abstract">
 <p class="admonition-title">Avancement</p>
 <ul class="task-list">
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Analyse détaillée de <code>opslexp.ml</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Étude des opérations sur les indices de De Bruijn</li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Première implémentation de <code>fv_elexp</code></li>
-<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Premiers tests sur des lambdas simples</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Analyse détaillée de la fonction <code>fv</code> existante dans <code>opslexp.ml</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Étude des opérations sur les indices de De Bruijn</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Compréhension du rôle de <code>fv_hoist</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Compréhension du rôle de <code>fv_sink</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Étude du fonctionnement des variables libres dans les lambdas imbriquées</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Validation du fonctionnement du shadowing avec indices de De Bruijn</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Première implémentation de <code>fv_elexp</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Implémentation des cas :<ul>
+<li><code>Eimm</code></li>
+<li><code>Ebuiltin</code></li>
+<li><code>Econs</code></li>
+<li><code>Etype</code></li>
+<li><code>Evar</code></li>
+<li><code>Elambda</code></li>
+<li><code>Ecall</code></li>
+<li><code>Eproj</code></li>
+</ul>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Création du nouveau module <code>closure.ml</code></li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout d’une commande temporaire :</p>
+<p><code>dump-elexps-fvs</code></p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Ajout d’outils de debug pour afficher :</p>
+<ul>
+<li>les variables libres brutes </li>
+<li>les captures lexicales réelles</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Création d’un fichier de tests dédié :</p>
+<p><code>closure.typer</code></p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Validation sur plusieurs cas :</p>
+<ul>
+<li>lambda fermée </li>
+<li>capture simple </li>
+<li>lambdas imbriquées </li>
+<li>captures multiples </li>
+<li>shadowing</li>
+</ul>
+</li>
 </ul>
 </div>
 <h3 id="decisions-et-ajustements_1">Décisions et ajustements<a class="headerlink" href="#decisions-et-ajustements_1" title="Permanent link">&para;</a></h3>
 <div class="admonition info">
 <p class="admonition-title">Décisions</p>
 <ul>
-<li>À compléter</li>
+<li>Réutiliser les structures <code>db_set</code> et les utilitaires déjà présents dans <code>Debruijn</code></li>
+<li>Construire une première version de <code>fv_elexp</code> incrémentalement</li>
+<li>Décision de séparer :<ul>
+<li>l’analyse des variables libres </li>
+<li>les outils de debug </li>
+<li>la future transformation des closures</li>
 </ul>
+</li>
+<li>Considérer temporairement les grands indices De Bruijn comme des références globales/builtins dans les outils de debug</li>
+<li>Reporter l’implémentation de :<ul>
+<li><code>Elet</code></li>
+<li><code>Ecase</code></li>
+</ul>
+</li>
+</ul>
+<p>afin de valider d’abord les cas fondamentaux liés aux lambdas.</p>
 </div>
 <h3 id="difficultes-rencontrees_1">Difficultés rencontrées<a class="headerlink" href="#difficultes-rencontrees_1" title="Permanent link">&para;</a></h3>
 <div class="admonition warning">
 <p class="admonition-title">Difficultés</p>
 <ul>
-<li>À compléter</li>
+<li>Compréhension initiale difficile de <code>fv_hoist</code> et <code>fv_sink</code></li>
+<li>Difficulté à interpréter correctement les indices de De Bruijn dans les lambdas imbriquées</li>
+<li>Compréhension progressive du lien entre :<ul>
+<li>variables libres</li>
+<li>profondeur lexicale</li>
+<li>captures de closure</li>
+</ul>
+</li>
+<li>Distinction parfois ambiguë entre :<ul>
+<li>variables capturées </li>
+<li>références globales</li>
+<li>builtins internes du compilateur</li>
+</ul>
+</li>
+<li>Compréhension du comportement du shadowing dans un contexte De Bruijn</li>
 </ul>
 </div>
 
