@@ -583,6 +583,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#semaine-5-31-mai-5-juin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semaine 5 (31 mai – 5 juin)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semaine 5 (31 mai – 5 juin)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectifs-de-la-periode_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs de la période
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#travail-realise_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Travail réalisé
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decisions-et-ajustements_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Décisions et ajustements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#difficultes-rencontrees_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Difficultés rencontrées
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -820,6 +881,67 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#semaine-5-31-mai-5-juin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semaine 5 (31 mai – 5 juin)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semaine 5 (31 mai – 5 juin)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectifs-de-la-periode_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs de la période
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#travail-realise_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Travail réalisé
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decisions-et-ajustements_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Décisions et ajustements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#difficultes-rencontrees_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Difficultés rencontrées
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1005,6 +1127,55 @@
 </ul>
 </li>
 <li>Compréhension du comportement du shadowing dans un contexte De Bruijn</li>
+</ul>
+</div>
+<h2 id="semaine-5-31-mai-5-juin">Semaine 5 (31 mai – 5 juin)<a class="headerlink" href="#semaine-5-31-mai-5-juin" title="Permanent link">&para;</a></h2>
+<h3 id="objectifs-de-la-periode_2">Objectifs de la période<a class="headerlink" href="#objectifs-de-la-periode_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Finaliser l’analyse des variables libres sur <code>Elexp</code></li>
+<li>Commencer l’implémentation de la conversion de closures</li>
+</ul>
+<h3 id="travail-realise_2">Travail réalisé<a class="headerlink" href="#travail-realise_2" title="Permanent link">&para;</a></h3>
+<div class="admonition abstract">
+<p class="admonition-title">Avancement</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Finalisation de <code>fv_elexp</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Validation du calcul des captures sur plusieurs cas de test (<code>let</code>, <code>case</code>, lambdas imbriquées, shadowing)</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Implémentation de :</p>
+<p><code>captures_of_lambda</code></p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Implémentation d'une première version de :</p>
+<p><code>close_lambda</code></p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Réécriture des variables capturées dans le corps des lambdas fermées</p>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Validation expérimentale de la fermeture de lambdas à l’aide d’outils de debug</li>
+</ul>
+</div>
+<h3 id="decisions-et-ajustements_2">Décisions et ajustements<a class="headerlink" href="#decisions-et-ajustements_2" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Décisions</p>
+<ul>
+<li>
+<p>Adoption de la représentation de closure :</p>
+<p><code>(code, capture1, capture2, ...)</code></p>
+</li>
+<li>
+<p>Utilisation du schéma :</p>
+<p><code>arg[0] = env</code></p>
+<p><code>arg[1] = argument original</code></p>
+</li>
+</ul>
+</div>
+<h3 id="difficultes-rencontrees_2">Difficultés rencontrées<a class="headerlink" href="#difficultes-rencontrees_2" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Difficultés</p>
+<ul>
+<li>Compréhension de la représentation des closures et des captures</li>
+<li>Interprétation des indices de De Bruijn lors de la réécriture du corps des lambdas</li>
 </ul>
 </div>
 
