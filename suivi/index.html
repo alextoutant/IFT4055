@@ -716,6 +716,78 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#semaine-8-21-juin-27-juin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semaine 8 (21 juin – 27 juin)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semaine 8 (21 juin – 27 juin)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectifs-de-la-periode_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs de la période
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#travail-realise_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Travail réalisé
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decisions-et-ajustements_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Décisions et ajustements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#difficultes-rencontrees_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Difficultés rencontrées
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#travail-restant_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Travail restant
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1086,6 +1158,78 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#semaine-8-21-juin-27-juin" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Semaine 8 (21 juin – 27 juin)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Semaine 8 (21 juin – 27 juin)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#objectifs-de-la-periode_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Objectifs de la période
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#travail-realise_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Travail réalisé
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#decisions-et-ajustements_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Décisions et ajustements
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#difficultes-rencontrees_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Difficultés rencontrées
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#travail-restant_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Travail restant
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1396,6 +1540,88 @@
 <li>Validation finale de la représentation des closures sans captures</li>
 <li>Refactorisation éventuelle du mécanisme de réécriture à l’aide d’un contexte explicite</li>
 <li>Tests supplémentaires et validation complète de la passe de conversion de closures</li>
+</ul>
+</div>
+<h2 id="semaine-8-21-juin-27-juin">Semaine 8 (21 juin – 27 juin)<a class="headerlink" href="#semaine-8-21-juin-27-juin" title="Permanent link">&para;</a></h2>
+<h3 id="objectifs-de-la-periode_4">Objectifs de la période<a class="headerlink" href="#objectifs-de-la-periode_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Finaliser la passe de conversion de closures</li>
+<li>Implémenter la transformation des appels de fonctions (<code>Ecall</code>)</li>
+<li>Réaliser le refactor suggéré lors de la revue de code</li>
+<li>Effectuer une validation complète de la passe</li>
+</ul>
+<h3 id="travail-realise_4">Travail réalisé<a class="headerlink" href="#travail-realise_4" title="Permanent link">&para;</a></h3>
+<div class="admonition abstract">
+<p class="admonition-title">Avancement</p>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Implémentation complète de la transformation des nœuds <code>Ecall</code></li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Adoption de la convention d’appel des closures :</p>
+<p><code>f[0](f, arg1, arg2, ...)</code></p>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Distinction entre :</p>
+<ul>
+<li>appels de closures converties</li>
+<li>appels de fonctions globales conservés inchangés</li>
+</ul>
+</li>
+<li class="task-list-item">
+<p><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Validation du comportement des appels sur plusieurs cas de test</p>
+</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Refactorisation du mécanisme de réécriture à l’aide d’un contexte explicite basé sur les listes de Myers</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Suppression du mécanisme précédent reposant sur la recherche des captures par profondeur</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Introduction d’un contexte de réécriture associant directement les variables capturées à leur expression de remplacement</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Simplification de la réécriture des variables capturées dans les corps de lambdas</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Intégration complète de la fermeture des lambdas, de la réécriture et de la conversion des appels dans une passe unique</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Simplification des outils de debug pour afficher directement la transformation complète des expressions</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled checked/><span class="task-list-indicator"></span></label> Création et validation de nouveaux tests :<ul>
+<li>appels de closures sans capture</li>
+<li>appels avec arguments capturés</li>
+<li>appels imbriqués</li>
+<li>appels entre closures capturées</li>
+<li>captures à l’intérieur de branches <code>case</code></li>
+</ul>
+</li>
+</ul>
+</div>
+<h3 id="decisions-et-ajustements_4">Décisions et ajustements<a class="headerlink" href="#decisions-et-ajustements_4" title="Permanent link">&para;</a></h3>
+<div class="admonition info">
+<p class="admonition-title">Décisions</p>
+<ul>
+<li>
+<p>Adoption définitive de la représentation :</p>
+<p><code>(code, env)</code></p>
+</li>
+</ul>
+<p>même lorsque l’environnement est vide (<code>unit</code>)</p>
+<ul>
+<li>Utilisation d’un contexte Myers pour la réécriture des variables capturées</li>
+<li>Suppression du besoin de rechercher dynamiquement les captures lors de la réécriture</li>
+<li>
+<p>Validation de la convention :</p>
+<p><code>arg[0] = closure</code></p>
+<p><code>arg[1] = argument original</code></p>
+</li>
+</ul>
+</div>
+<h3 id="difficultes-rencontrees_4">Difficultés rencontrées<a class="headerlink" href="#difficultes-rencontrees_4" title="Permanent link">&para;</a></h3>
+<div class="admonition warning">
+<p class="admonition-title">Difficultés</p>
+<ul>
+<li>Déterminer quels appels devaient être transformés en appels de closures</li>
+<li>Préserver correctement les indices de De Bruijn lors de la réécriture</li>
+<li>Vérifier la cohérence des captures dans les appels imbriqués</li>
+<li>Validation de la transformation dans les branches de <code>case</code></li>
+</ul>
+</div>
+<h3 id="travail-restant_1">Travail restant<a class="headerlink" href="#travail-restant_1" title="Permanent link">&para;</a></h3>
+<div class="admonition note">
+<p class="admonition-title">Prochaine étape</p>
+<ul>
+<li>Revue de code complète avec le superviseur</li>
+<li>Corrections éventuelles issues de la revue</li>
+<li>Début de la partie bonus</li>
 </ul>
 </div>
 
